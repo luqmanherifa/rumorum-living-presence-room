@@ -1,8 +1,10 @@
 export default function SelectScreen({ onCreateClick, onJoinClick }) {
   return (
-    <main className="w-full h-full flex flex-col px-4 pt-14 pb-6">
+    <main className="w-full h-full flex flex-col px-4 py-10">
       <div className="mb-10 text-center">
-        <h1 className="text-3xl font-extrabold">Chat Room</h1>
+        <h1 className="text-3xl font-heading tracking-wide text-gray-700">
+          Rumorum
+        </h1>
         <p className="mt-2 text-gray-500">Buat atau gabung ke room</p>
       </div>
       <div className="flex-1 flex flex-col gap-4">
@@ -14,7 +16,7 @@ export default function SelectScreen({ onCreateClick, onJoinClick }) {
         </button>
         <button
           onClick={onJoinClick}
-          className="flex-1 rounded-2xl bg-yellow-400 text-gray-900 text-xl font-bold active:scale-95 transition"
+          className="flex-1 rounded-2xl bg-yellow-500 text-white text-xl font-bold active:scale-95 transition"
         >
           Gabung Room
         </button>
