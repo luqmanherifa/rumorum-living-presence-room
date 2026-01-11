@@ -43,7 +43,7 @@ export default function ChatRoom({ username, roomCode }) {
           </div>
 
           {/* Chat Messages */}
-          <div className="px-4 py-32 pb-40">
+          <div className="px-4 py-4 pb-6">
             {myBubble && (
               <div className="sticky top-20 z-10 flex justify-end mb-4">
                 <div className="max-w-[80%] bg-blue-500 text-white rounded-2xl rounded-tr-sm px-4 py-3 text-sm transition-colors">

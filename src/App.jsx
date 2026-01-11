@@ -8,10 +8,8 @@ import JoinRoomScreen from "./components/JoinRoomScreen";
 
 export default function App() {
   return (
-    <div className="min-h-screen w-screen bg-white flex justify-center overflow-hidden">
-      <div className="w-full max-w-[430px] h-screen overflow-x-hidden">
-        <AppContent />
-      </div>
+    <div className="min-h-screen w-full bg-white">
+      <AppContent />
     </div>
   );
 }
