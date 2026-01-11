@@ -1,4 +1,4 @@
-export function JoinRoomScreen({
+export default function JoinRoomScreen({
   roomCode,
   setRoomCode,
   username,
