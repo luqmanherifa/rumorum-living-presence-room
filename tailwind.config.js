@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        rumor: "#0E21A0",
-        whisper: "#4D2FB2",
-        echo: "#F375C2",
+        rumor: "#1F2A1C",
+        whisper: "#D65CFF",
+        echo: "#58CC02",
       },
       fontFamily: {
         heading: ["'Dela Gothic One'", "cursive"],
