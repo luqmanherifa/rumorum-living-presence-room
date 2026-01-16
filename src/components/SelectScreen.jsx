@@ -1,35 +1,101 @@
+import { useState } from "react";
+import { motion } from "framer-motion";
+
 export default function SelectScreen({ onCreateClick, onJoinClick }) {
+  const [showModal, setShowModal] = useState(false);
+  const [modalPage, setModalPage] = useState(0);
+
+  const modalContent = [
+    {
+      title: "Terjadi Saat Mengetik",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 640 640"
+          className="w-14 h-14 fill-rumor"
+        >
+          <path d="M434.8 54.1C446.7 62.7 451.1 78.3 445.7 91.9L367.3 288L512 288C525.5 288 537.5 296.4 542.1 309.1C546.7 321.8 542.8 336 532.5 344.6L244.5 584.6C233.2 594 217.1 594.5 205.2 585.9C193.3 577.3 188.9 561.7 194.3 548.1L272.7 352L128 352C114.5 352 102.5 343.6 97.9 330.9C93.3 318.2 97.2 304 107.5 295.4L395.5 55.4C406.8 46 422.9 45.5 434.8 54.1z" />
+        </svg>
+      ),
+      text: "Rumorum adalah chat realtime. Setiap huruf yang kamu ketik terlihat, membuat percakapan terjadi bersamaan.",
+    },
+    {
+      title: "Satu Balon Pesan",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 640 640"
+          className="w-14 h-14 fill-whisper"
+        >
+          <path d="M320 544C461.4 544 576 436.5 576 304C576 171.5 461.4 64 320 64C178.6 64 64 171.5 64 304C64 358.3 83.2 408.3 115.6 448.5L66.8 540.8C62 549.8 63.5 560.8 70.4 568.3C77.3 575.8 88.2 578.1 97.5 574.1L215.9 523.4C247.7 536.6 282.9 544 320 544zM192 272C209.7 272 224 286.3 224 304C224 321.7 209.7 336 192 336C174.3 336 160 321.7 160 304C160 286.3 174.3 272 192 272zM320 272C337.7 272 352 286.3 352 304C352 321.7 337.7 336 320 336C302.3 336 288 321.7 288 304C288 286.3 302.3 272 320 272zM416 304C416 286.3 430.3 272 448 272C465.7 272 480 286.3 480 304C480 321.7 465.7 336 448 336C430.3 336 416 321.7 416 304z" />
+        </svg>
+      ),
+      text: "Di dalam satu room, setiap orang hanya punya satu balon pesan. Saat enter ditekan, pesan sebelumnya tergantikan.",
+    },
+    {
+      title: "Hilang Begitu Saja",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 640 640"
+          className="w-14 h-14 fill-echo"
+        >
+          <path d="M320 128C426 128 512 214 512 320C512 426 426 512 320 512C254.8 512 197.1 479.5 162.4 429.7C152.3 415.2 132.3 411.7 117.8 421.8C103.3 431.9 99.8 451.9 109.9 466.4C156.1 532.6 233 576 320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C234.3 64 158.5 106.1 112 170.7L112 144C112 126.3 97.7 112 80 112C62.3 112 48 126.3 48 144L48 256C48 273.7 62.3 288 80 288L104.6 288C105.1 288 105.6 288 106.1 288L192.1 288C209.8 288 224.1 273.7 224.1 256C224.1 238.3 209.8 224 192.1 224L153.8 224C186.9 166.6 249 128 320 128zM344 216C344 202.7 333.3 192 320 192C306.7 192 296 202.7 296 216L296 320C296 326.4 298.5 332.5 303 337L375 409C384.4 418.4 399.6 418.4 408.9 409C418.2 399.6 418.3 384.4 408.9 375.1L343.9 310.1L343.9 216z" />
+        </svg>
+      ),
+      text: "Obrolan di Rumorum tidak disimpan. Percakapan hanya ada selama room aktif, lalu selesai tanpa riwayat atau jejak.",
+    },
+  ];
+
+  const handleClose = () => {
+    setShowModal(false);
+    setTimeout(() => setModalPage(0), 300);
+  };
+
   return (
     <main className="w-full h-screen flex flex-col justify-center items-center px-5 overflow-hidden bg-white">
       <div className="w-full max-w-md flex flex-col h-full justify-center">
         {/* Title */}
         <div className="mb-12 text-center">
           <div className="mb-6 flex justify-center">
-            <div className="relative">
-              <div className="absolute -top-2 -right-2 w-16 h-16 bg-purple-200 rounded-full animate-pulse"></div>
-              <div
-                className="absolute -bottom-3 -left-3 w-12 h-12 bg-green-200 rounded-full animate-pulse"
-                style={{ animationDelay: "0.5s" }}
-              ></div>
-
-              <div className="relative w-20 h-20 bg-rumor rounded-3xl flex items-center justify-center transform rotate-6 hover:rotate-0 transition-transform">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 640 640"
-                  className="w-11 h-11 fill-white"
-                >
-                  <path d="M416 208C416 305.2 330 384 224 384C197.3 384 171.9 379 148.8 370L67.2 413.2C57.9 418.1 46.5 416.4 39 409C31.5 401.6 29.8 390.1 34.8 380.8L70.4 313.6C46.3 284.2 32 247.6 32 208C32 110.8 118 32 224 32C330 32 416 110.8 416 208zM416 576C321.9 576 243.6 513.9 227.2 432C347.2 430.5 451.5 345.1 463 229.3C546.3 248.5 608 317.6 608 400C608 439.6 593.7 476.2 569.6 505.6L605.2 572.8C610.1 582.1 608.4 593.5 601 601C593.6 608.5 582.1 610.2 572.8 605.2L491.2 562C468.1 571 442.7 576 416 576z" />
-                </svg>
-              </div>
-            </div>
+            <motion.svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 640 640"
+              className="w-16 h-16 fill-rumor"
+              animate={{
+                y: [0, -10, 0],
+                rotate: [0, 5, -5, 0],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <path d="M560 128C573.2 128 580.7 143.1 572.8 153.6L544 192L544 368C544 447.5 479.5 512 400 512L288 512L241.7 558.3C231.3 568.7 215.2 570.7 202.6 563.1L105.5 504.9C88.5 494.7 90.5 469.4 108.9 462L224 416C87.8 375.1 71.5 233.8 86 159.7C89.6 141.9 109.3 135.4 125.3 144.2L384 288L384 208C384 163.8 419.8 128 464 128L560 128zM464 184C450.7 184 440 194.7 440 208C440 221.3 450.7 232 464 232C477.3 232 488 221.3 488 208C488 194.7 477.3 184 464 184zM246.5 54.4C258.9 40.7 279.8 45.5 289 61.5L345.4 159.8C339.6 174.2 336.2 189.9 336 206.3L202.1 132C212.2 100.4 229.1 73.6 246.5 54.4z" />
+            </motion.svg>
           </div>
 
           <h1 className="text-4xl font-heading tracking-wide text-rumor font-extrabold">
             Rumorum
           </h1>
-          <p className="mt-2 text-sm text-gray-400 font-medium">
-            Cerita yang lewat di satu ruang
-          </p>
+          <div className="mt-2 flex items-center justify-center gap-1.5">
+            <p className="text-sm text-gray-400 font-medium">
+              Cerita yang lewat di satu ruang
+            </p>
+            <button
+              onClick={() => setShowModal(true)}
+              className="transition-all group"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"
+                className="w-4 h-4 fill-gray-400 group-hover:fill-rumor transition-colors"
+              >
+                <path d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM288 224C288 206.3 302.3 192 320 192C337.7 192 352 206.3 352 224C352 241.7 337.7 256 320 256C302.3 256 288 241.7 288 224zM280 288L328 288C341.3 288 352 298.7 352 312L352 400L360 400C373.3 400 384 410.7 384 424C384 437.3 373.3 448 360 448L280 448C266.7 448 256 437.3 256 424C256 410.7 266.7 400 280 400L304 400L304 336L280 336C266.7 336 256 325.3 256 312C256 298.7 266.7 288 280 288z" />
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Buttons */}
@@ -80,12 +146,94 @@ export default function SelectScreen({ onCreateClick, onJoinClick }) {
             href="https://github.com/luqmanherifa"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-rumor hover:underline transition-all"
+            className="hover:underline transition-all"
           >
             Luqman Herifa
           </a>
         </p>
       </div>
+
+      {/* Modal */}
+      {showModal && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center px-5 z-50"
+          onClick={handleClose}
+        >
+          <div
+            className="bg-white rounded-3xl w-full max-w-md p-6 relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={handleClose}
+              className="absolute top-5 right-5 p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 384 512"
+                className="w-4 h-4 fill-gray-400"
+              >
+                <path d="M345 137L217 265 345 393c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L183 297 55 425c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l128-128L21 135c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l128 128L311 101c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
+              </svg>
+            </button>
+
+            <div className="text-center mb-6">
+              <div className="flex justify-center mb-4">
+                {modalContent[modalPage].icon}
+              </div>
+              <h2 className="text-xl font-bold text-gray-800 mb-3">
+                {modalContent[modalPage].title}
+              </h2>
+              <p className="text-gray-700 text-sm leading-relaxed px-1">
+                {modalContent[modalPage].text}
+              </p>
+            </div>
+
+            <div className="mb-5">
+              <div className="flex justify-center gap-1.5">
+                {modalContent.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`h-1.5 rounded-full transition-all ${
+                      index === modalPage
+                        ? "w-4 bg-gray-600"
+                        : "w-1.5 bg-gray-300"
+                    }`}
+                  ></div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              {modalPage > 0 ? (
+                <button
+                  onClick={() => setModalPage(modalPage - 1)}
+                  className="flex-1 py-2.5 rounded-lg text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors uppercase"
+                >
+                  Kembali
+                </button>
+              ) : (
+                <div className="flex-1"></div>
+              )}
+
+              {modalPage < modalContent.length - 1 ? (
+                <button
+                  onClick={() => setModalPage(modalPage + 1)}
+                  className="flex-1 py-2.5 rounded-lg text-sm font-bold text-white bg-gray-600 hover:opacity-90 transition-opacity uppercase"
+                >
+                  Lanjut
+                </button>
+              ) : (
+                <button
+                  onClick={handleClose}
+                  className="flex-1 py-2.5 rounded-lg text-sm font-bold text-white bg-gray-600 hover:opacity-90 transition-opacity uppercase"
+                >
+                  Tutup
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
