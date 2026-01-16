@@ -18,17 +18,17 @@ export default function SelectScreen({ onCreateClick, onJoinClick }) {
   const modalContent = [
     {
       title: "Terjadi Saat Mengetik",
-      icon: <LightningIcon className="w-14 h-14 fill-rumor" />,
+      icon: <LightningIcon className="w-10 h-10 fill-rumor" />,
       text: "Rumorum adalah chat realtime. Setiap huruf yang kamu ketik terlihat, membuat percakapan terjadi bersamaan.",
     },
     {
       title: "Satu Balon Pesan",
-      icon: <ChatBubbleIcon className="w-14 h-14 fill-whisper" />,
+      icon: <ChatBubbleIcon className="w-10 h-10 fill-whisper" />,
       text: "Di dalam satu room, setiap orang hanya punya satu balon pesan. Saat enter ditekan, pesan sebelumnya tergantikan.",
     },
     {
       title: "Hilang Begitu Saja",
-      icon: <ClockIcon className="w-14 h-14 fill-echo" />,
+      icon: <ClockIcon className="w-10 h-10 fill-echo" />,
       text: "Obrolan di Rumorum tidak disimpan. Percakapan hanya ada selama room aktif, lalu selesai tanpa riwayat atau jejak.",
     },
   ];
@@ -74,7 +74,7 @@ export default function SelectScreen({ onCreateClick, onJoinClick }) {
               onClick={() => setShowModal(true)}
               className="transition-all group"
             >
-              <InfoIcon className="w-4 h-4 fill-slate-400 group-hover:fill-rumor transition-colors" />
+              <InfoIcon className="w-4 h-4 fill-slate-400 group-hover:fill-slate-600 transition-colors" />
             </button>
           </div>
         </motion.div>
@@ -82,31 +82,33 @@ export default function SelectScreen({ onCreateClick, onJoinClick }) {
         {/* Buttons */}
         <div className="flex flex-col gap-3.5">
           <motion.button
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            whileTap={{ scale: 0.97 }}
+            transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+            whileTap={{
+              scale: 0.98,
+              transition: { type: "spring", stiffness: 300 },
+            }}
             onClick={onCreateClick}
-            className="h-16 rounded-2xl bg-whisper transition-all text-base font-bold uppercase tracking-wide text-white"
+            className="h-16 rounded-2xl bg-whisper text-base font-bold uppercase tracking-wide text-white flex items-center justify-center gap-2.5"
           >
-            <span className="flex items-center justify-center gap-2.5">
-              <SparklesIcon className="w-5 h-5 fill-white" />
-              Buat Room
-            </span>
+            <SparklesIcon className="w-5 h-5 fill-white" />
+            Buat Room
           </motion.button>
 
           <motion.button
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            whileTap={{ scale: 0.97 }}
+            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+            whileTap={{
+              scale: 0.98,
+              transition: { type: "spring", stiffness: 300 },
+            }}
             onClick={onJoinClick}
-            className="h-16 rounded-2xl bg-echo transition-all text-base font-bold uppercase tracking-wide text-white"
+            className="h-16 rounded-2xl bg-echo text-base font-bold uppercase tracking-wide text-white flex items-center justify-center gap-2.5"
           >
-            <span className="flex items-center justify-center gap-2.5">
-              <SmileIcon className="w-5 h-5 fill-white" />
-              Gabung Room
-            </span>
+            <SmileIcon className="w-5 h-5 fill-white" />
+            Gabung Room
           </motion.button>
         </div>
       </div>
@@ -147,17 +149,9 @@ export default function SelectScreen({ onCreateClick, onJoinClick }) {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="bg-white rounded-3xl w-full max-w-md p-6 relative"
+              className="bg-white rounded-3xl w-full max-w-md px-8 py-8 relative"
               onClick={(e) => e.stopPropagation()}
             >
-              <motion.button
-                whileTap={{ scale: 0.9 }}
-                onClick={handleClose}
-                className="absolute top-5 right-5 p-2 hover:bg-slate-100 rounded-lg transition-colors"
-              >
-                <CloseIcon className="w-4 h-4 fill-slate-500" />
-              </motion.button>
-
               <AnimatePresence mode="wait">
                 <motion.div
                   key={modalPage}
@@ -167,10 +161,10 @@ export default function SelectScreen({ onCreateClick, onJoinClick }) {
                   transition={{ duration: 0.2 }}
                   className="text-center mb-8"
                 >
-                  <div className="flex justify-center mb-6">
+                  <div className="flex justify-center mb-4">
                     {modalContent[modalPage].icon}
                   </div>
-                  <h2 className="text-2xl font-bold text-slate-800 mb-4">
+                  <h2 className="text-xl font-bold text-slate-800 mb-2">
                     {modalContent[modalPage].title}
                   </h2>
                   <p className="text-slate-600 text-base leading-relaxed px-2">
@@ -180,17 +174,17 @@ export default function SelectScreen({ onCreateClick, onJoinClick }) {
               </AnimatePresence>
 
               <div className="mb-7">
-                <div className="flex justify-center gap-2">
+                <div className="flex justify-center gap-1.5">
                   {modalContent.map((_, index) => (
                     <motion.div
                       key={index}
                       animate={{
-                        width: index === modalPage ? 20 : 8,
+                        width: index === modalPage ? 12 : 8,
                         backgroundColor:
                           index === modalPage ? "#475569" : "#cbd5e1",
                       }}
                       transition={{ duration: 0.3 }}
-                      className="h-2 rounded-full"
+                      className="h-1.5 rounded-full"
                     ></motion.div>
                   ))}
                 </div>
@@ -203,7 +197,7 @@ export default function SelectScreen({ onCreateClick, onJoinClick }) {
                     animate={{ opacity: 1 }}
                     whileTap={{ scale: 0.97 }}
                     onClick={() => setModalPage(modalPage - 1)}
-                    className="flex-1 h-12 rounded-xl text-base font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors uppercase flex items-center justify-center"
+                    className="flex-1 h-12 rounded-xl text-sm font-bold text-slate-700 bg-slate-200 hover:bg-slate-300 transition-colors uppercase flex items-center justify-center"
                   >
                     Kembali
                   </motion.button>
@@ -215,7 +209,7 @@ export default function SelectScreen({ onCreateClick, onJoinClick }) {
                   <motion.button
                     whileTap={{ scale: 0.97 }}
                     onClick={() => setModalPage(modalPage + 1)}
-                    className="flex-1 h-12 rounded-xl text-base font-bold text-white bg-slate-700 hover:bg-slate-800 transition-colors uppercase flex items-center justify-center"
+                    className="flex-1 h-12 rounded-xl text-sm font-bold text-white bg-slate-700 hover:bg-slate-800 transition-colors uppercase flex items-center justify-center"
                   >
                     Lanjut
                   </motion.button>
@@ -223,7 +217,7 @@ export default function SelectScreen({ onCreateClick, onJoinClick }) {
                   <motion.button
                     whileTap={{ scale: 0.97 }}
                     onClick={handleClose}
-                    className="flex-1 h-12 rounded-xl text-base font-bold text-white bg-slate-700 hover:bg-slate-800 transition-colors uppercase flex items-center justify-center"
+                    className="flex-1 h-12 rounded-xl text-sm font-bold text-white bg-slate-700 hover:bg-slate-800 transition-colors uppercase flex items-center justify-center"
                   >
                     Tutup
                   </motion.button>

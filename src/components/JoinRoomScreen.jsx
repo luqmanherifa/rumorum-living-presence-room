@@ -95,11 +95,7 @@ export default function JoinRoomScreen({
         </div>
 
         {/* Submit */}
-        <motion.button
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.4 }}
-          whileTap={{ scale: 0.97 }}
+        <button
           onClick={onSubmit}
           className="mt-6 h-14 rounded-2xl bg-echo text-base font-bold uppercase tracking-wide text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
@@ -107,7 +103,7 @@ export default function JoinRoomScreen({
             <SmileIcon className="w-5 h-5 fill-white" />
             Gabung Room
           </span>
-        </motion.button>
+        </button>
       </div>
     </main>
   );

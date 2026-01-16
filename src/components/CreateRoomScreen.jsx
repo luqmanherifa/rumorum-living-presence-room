@@ -93,7 +93,7 @@ export default function CreateRoomScreen({
               placeholder="Kode room kamu"
             />
             <p className="mt-2 text-xs text-slate-500 font-medium">
-              Kode ini dipakai untuk join room
+              Kode ini dipakai untuk masuk room
             </p>
           </motion.div>
 
@@ -117,11 +117,7 @@ export default function CreateRoomScreen({
         </div>
 
         {/* Submit */}
-        <motion.button
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.5 }}
-          whileTap={{ scale: 0.97 }}
+        <button
           onClick={onSubmit}
           className="mt-6 h-14 rounded-2xl bg-whisper text-base font-bold uppercase tracking-wide text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
@@ -129,7 +125,7 @@ export default function CreateRoomScreen({
             <SparklesIcon className="w-5 h-5 fill-white" />
             Buat Room
           </span>
-        </motion.button>
+        </button>
       </div>
     </main>
   );
