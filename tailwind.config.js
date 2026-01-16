@@ -5,7 +5,6 @@ export default {
     extend: {
       colors: {
         rumor: "#9A3DCC",
-        murmur: "#C04BFF",
         whisper: "#43C000",
         echo: "#FF4F9A",
       },
