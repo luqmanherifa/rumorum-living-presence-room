@@ -142,7 +142,7 @@ export default function ChatRoom({ username, roomCode }) {
                     {username}
                   </span>
                   <span className="text-[8px] text-slate-400 font-medium">
-                    • Enter hapus
+                    • Enter untuk hapus
                   </span>
                 </div>
                 <div className="flex items-center flex-shrink-0">
