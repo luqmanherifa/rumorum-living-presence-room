@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        rumor: "#C04BFF",
+        rumor: "#9A3DCC",
+        murmur: "#C04BFF",
         whisper: "#43C000",
         echo: "#FF4F9A",
       },

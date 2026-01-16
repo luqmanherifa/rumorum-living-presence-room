@@ -81,7 +81,7 @@ export default function SelectScreen({ onCreateClick, onJoinClick }) {
           </h1>
           <div className="mt-2 flex items-center justify-center gap-1.5">
             <p className="text-sm text-gray-400 font-medium">
-              Cerita yang lewat di satu ruang
+              Ruang cerita yang lewat begitu saja
             </p>
             <button
               onClick={() => setShowModal(true)}
