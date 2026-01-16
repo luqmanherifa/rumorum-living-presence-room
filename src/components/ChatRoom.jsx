@@ -44,7 +44,7 @@ export default function ChatRoom({ username, roomCode }) {
 
           {/* Chat Messages */}
           <div className="px-4 py-4 pb-6">
-            {/* My Bubble - Compact */}
+            {/* User Bubble */}
             <div className="sticky top-16 z-10 mb-4 flex justify-end">
               <div className="w-[70%] bg-whisper text-white rounded-xl rounded-tr-md px-3 py-2.5">
                 <div className="flex items-center justify-between mb-1.5">
