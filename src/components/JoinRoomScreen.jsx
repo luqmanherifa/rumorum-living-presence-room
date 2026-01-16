@@ -55,7 +55,7 @@ export default function JoinRoomScreen({
               type="text"
               value={roomCode}
               onChange={(e) => setRoomCode(e.target.value)}
-              placeholder="Contoh: gaming123"
+              placeholder="Kode room teman kamu"
             />
           </div>
 

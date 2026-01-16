@@ -57,7 +57,7 @@ export default function CreateRoomScreen({
               type="text"
               value={roomName}
               onChange={(e) => setRoomName(e.target.value)}
-              placeholder="Contoh: Room Gaming"
+              placeholder="Nama room kamu"
             />
           </div>
 
@@ -70,7 +70,7 @@ export default function CreateRoomScreen({
               type="text"
               value={roomCode}
               onChange={(e) => setRoomCode(e.target.value)}
-              placeholder="Contoh: gaming123"
+              placeholder="Kode room kamu"
             />
             <p className="mt-1.5 text-xs text-gray-500 px-1">
               Kode ini dipakai untuk join room

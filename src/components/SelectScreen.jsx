@@ -4,7 +4,7 @@ export default function SelectScreen({ onCreateClick, onJoinClick }) {
       <div className="w-full max-w-md flex flex-col h-full justify-center">
         {/* Title */}
         <div className="mb-12 text-center">
-          <div className="mb-5 flex justify-center">
+          <div className="mb-6 flex justify-center">
             <div className="relative">
               <div className="absolute -top-2 -right-2 w-16 h-16 bg-purple-100 rounded-full animate-pulse"></div>
               <div
@@ -12,7 +12,7 @@ export default function SelectScreen({ onCreateClick, onJoinClick }) {
                 style={{ animationDelay: "0.5s" }}
               ></div>
 
-              <div className="relative w-20 h-20 bg-whisper rounded-3xl flex items-center justify-center transform rotate-6 hover:rotate-0 transition-transform">
+              <div className="relative w-20 h-20 bg-rumor rounded-3xl flex items-center justify-center transform rotate-6 hover:rotate-0 transition-transform">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 640 640"
@@ -27,7 +27,7 @@ export default function SelectScreen({ onCreateClick, onJoinClick }) {
           <h1 className="text-3xl font-heading tracking-wide text-rumor font-extrabold">
             Rumorum
           </h1>
-          <p className="mt-2 text-sm text-gray-600 font-medium">
+          <p className="mt-2 text-sm text-gray-400 font-medium">
             Cerita yang lewat di satu ruang
           </p>
         </div>
