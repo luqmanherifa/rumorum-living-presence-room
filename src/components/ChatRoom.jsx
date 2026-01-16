@@ -74,7 +74,7 @@ export default function ChatRoom({ username, roomCode }) {
           animate={{ y: 0, opacity: 1 }}
           className="relative bg-white border-b-2 border-slate-200 overflow-hidden"
         >
-          <div className="relative px-4 py-2">
+          <div className="relative px-4 py-2 pt-12">
             <div className="flex items-center gap-2.5">
               <motion.div
                 animate={{
@@ -145,7 +145,22 @@ export default function ChatRoom({ username, roomCode }) {
                     • Enter untuk hapus
                   </span>
                 </div>
-                <div className="flex items-center flex-shrink-0">
+                <div className="flex items-center gap-1 flex-shrink-0">
+                  <AnimatePresence>
+                    {isTyping && (
+                      <motion.span
+                        key="typing"
+                        initial={{ opacity: 0, y: 2 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -2 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                        className="text-[8px] font-semibold text-whisper"
+                      >
+                        Pesan terkirim
+                      </motion.span>
+                    )}
+                  </AnimatePresence>
+
                   <motion.button
                     whileTap={{ scale: 0.9, rotate: 180 }}
                     type="button"
