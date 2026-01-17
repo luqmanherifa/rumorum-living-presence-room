@@ -18,17 +18,17 @@ export default function SelectScreen({ onCreateClick, onJoinClick }) {
   const modalContent = [
     {
       title: "Terjadi Saat Mengetik",
-      icon: <LightningIcon className="w-10 h-10 fill-rumor" />,
+      icon: <LightningIcon className="w-10 h-10 fill-spark" />,
       text: "Rumorum adalah chat realtime. Setiap huruf yang kamu ketik terlihat, membuat percakapan terjadi bersamaan.",
     },
     {
       title: "Satu Balon Pesan",
-      icon: <ChatBubbleIcon className="w-10 h-10 fill-whisper" />,
+      icon: <ChatBubbleIcon className="w-10 h-10 fill-spark" />,
       text: "Di dalam satu room, setiap orang hanya punya satu balon pesan. Saat enter ditekan, pesan sebelumnya tergantikan.",
     },
     {
       title: "Hilang Begitu Saja",
-      icon: <ClockIcon className="w-10 h-10 fill-echo" />,
+      icon: <ClockIcon className="w-10 h-10 fill-spark" />,
       text: "Obrolan di Rumorum tidak disimpan. Percakapan hanya ada selama room aktif, lalu selesai tanpa riwayat atau jejak.",
     },
   ];

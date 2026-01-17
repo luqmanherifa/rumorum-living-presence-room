@@ -7,6 +7,7 @@ export default {
         rumor: "#9A3DCC",
         whisper: "#43C000",
         echo: "#FF4F9A",
+        spark: "#008FFF",
       },
       fontFamily: {
         heading: ["'Fredoka'", "cursive"],
