@@ -44,17 +44,10 @@ export default function ChatRoom({ username, roomCode }) {
   };
 
   const colors = [
-    "bg-blue-500",
     "bg-red-500",
-    "bg-orange-500",
     "bg-amber-500",
-    "bg-yellow-500",
     "bg-lime-500",
-    "bg-teal-500",
     "bg-cyan-500",
-    "bg-sky-500",
-    "bg-indigo-500",
-    "bg-rose-500",
     "bg-fuchsia-500",
   ];
 
@@ -102,16 +95,16 @@ export default function ChatRoom({ username, roomCode }) {
                     title="Salin kode"
                   >
                     {copied ? (
-                      <CheckIcon className="w-3 h-3 fill-green-600" />
+                      <CheckIcon className="w-3 h-3 fill-whisper" />
                     ) : (
-                      <CopyIcon className="w-3 h-3 fill-slate-500" />
+                      <CopyIcon className="w-3 h-3 fill-echo" />
                     )}
                   </motion.button>
                 </div>
               </div>
 
-              <div className="flex items-center gap-1.5 px-2.5 py-1 bg-pink-50 rounded-full border border-pink-200 flex-shrink-0">
-                <PeopleIcon className="w-3.5 h-3.5 fill-echo" />
+              <div className="flex items-center gap-1.5 px-2.5 py-1 bg-blue-50 rounded-full border border-blue-200 flex-shrink-0">
+                <PeopleIcon className="w-3.5 h-3.5 fill-spark" />
                 <span className="text-sm font-bold text-slate-800">
                   {otherBubbles.length + 1}
                 </span>
@@ -128,8 +121,8 @@ export default function ChatRoom({ username, roomCode }) {
             animate={{ scale: 1, opacity: 1 }}
             className="sticky top-0 z-10"
           >
-            <div className="bg-white rounded-xl border border-whisper p-2.5 pb-2">
-              <div className="flex items-center justify-between mb-1.5">
+            <div className="bg-white rounded-xl border border-whisper p-2.5 pb-1">
+              <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-1.5 flex-1 min-w-0">
                   <div
                     className={`h-4 w-4 rounded-full ${getColorForUser(
@@ -145,7 +138,7 @@ export default function ChatRoom({ username, roomCode }) {
                     • Enter untuk hapus
                   </span>
                 </div>
-                <div className="flex items-center gap-1 flex-shrink-0">
+                <div className="flex items-center gap-1.5 flex-shrink-0">
                   <AnimatePresence>
                     {isTyping && (
                       <motion.span
